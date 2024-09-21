@@ -1,0 +1,31 @@
+<div class="main-section d-flex flex-column">
+    <div class="main-content d-flex  align-items-center justify-content-center">
+        <div class="button">
+            <button type="button" class="btn start-button" (click)="startMigration()">Start</button>
+        </div>
+        <div class="toogle-button">
+            <button type="button" class="close-toggle" [class.show]="istoggleVisible" (click)="toggleOffcanvas()"><i class="bi bi-chevron-down"></i></button>
+        </div>
+    </div>
+    <!-- Offcanvas Popup -->  
+    <div class="offcanvas" [class.show]="isOffcanvasVisible">
+        <div class="offcanvas-content">
+            <div class="offcanvas-icon">
+                <i class="bi bi-rocket-fill"></i>
+            </div>
+            <div class="progress-section">
+                <div class="d-flex align-items-center justify-content-between">
+                    <p>Migrating Data to selected environment</p>
+                    <p>{{ progressValue }}%</p>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress" [style.width.%]="progressValue"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div> 
+
+    <p-toast position="bottom-left"></p-toast>
+</div>
