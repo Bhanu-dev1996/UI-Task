@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ToastModule } from 'primeng/toast'; 
+import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [ToastModule, CommonModule],
+  imports: [ToastModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
-  providers: [MessageService] 
 })
 export class MainComponent {
   isOffcanvasVisible = false;
@@ -32,6 +29,7 @@ export class MainComponent {
       } else {
         clearInterval(this.intervalId);
         this.isOffcanvasVisible = false; // Hide offcanvas
+        alert('The migration process has been successfully completed!') //Show alert
         // Show success toast using PrimeNG's MessageService
         this.messageService.add({
           severity: 'success',
@@ -40,7 +38,7 @@ export class MainComponent {
           life: 3000
         });
       }
-    }, 100); // Increment every 100ms (this can be adjusted for speed)
+    }, 300); // Increment every 100ms (this can be adjusted for speed)
   }
   
   
